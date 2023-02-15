@@ -1,0 +1,118 @@
+\documentclass[zihao=-4,linespread=1.5,a4paper,heading=true,twoside]{ctexbook}
+%\usepackage[utf8]{inputenc}
+\pagestyle{empty}
+% packages for page layout
+\usepackage{geometry}
+\geometry{
+a4paper,
+%total={171.8mm,246.2mm},
+%left=19.1mm,
+%top=25.4mm,
+}
+\setlength{\headheight}{14.5pt}
+% package for colors
+\usepackage{xcolor}
+
+% packages for fonts and symbols
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{calrsfs}
+\usepackage{stmaryrd}
+
+
+% packages for graphics
+\usepackage{graphicx}
+\graphicspath{ {./images/}{./images/} }
+\usepackage{wrapfig}
+\usepackage{subcaption}
+\usepackage{capt-of}
+\usepackage{cutwin}
+
+% packages for page layout
+\usepackage{geometry}
+\geometry{
+a4paper,
+total={171.8mm,246.2mm},
+left=19.1mm,
+top=25.4mm,
+}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[LE,RO]{\leftmark}
+\fancyhead[LO,RE]{\rightmark}
+\fancyfoot{}
+\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[LO,RE]{更新至\today}
+
+% package for quotes
+\usepackage{csquotes}
+
+% redefine itemize
+\usepackage{enumitem} % http://ctan.org/pkg/enumitem
+\setlist{nosep}
+
+% package for hyperlinks
+\usepackage{hyperref}
+\hypersetup{colorlinks=true}
+
+% packages for footnotes
+% \renewcommand{\thefootnote}{\fnsymbol{footnote}}
+% \usepackage{perpage}
+% \MakePerPage{footnote} 
+\usepackage[perpage,symbol*]{footmisc}
+
+% packages for bibliography
+\usepackage[
+backend=biber,
+style=gb7714-2015,
+gbpub=false,
+sorting=none
+]{biblatex}
+\addbibresource{./ref/ref.bib}
+
+% packages for definitions, theorems, proofs.
+\usepackage{amsthm}
+
+% set styles for definitions, lemmata, theorems, proofs, examples
+\theoremstyle{definition}
+\newtheorem{definition}{定义}
+\newtheorem*{definition*}{定义}
+\newtheorem{theorem}{定理}
+\newtheorem*{theorem*}{定理}
+\newtheorem{lemma}{引理}
+\newtheorem{corollary}{推论}[theorem]
+\let\oldproof\proof
+\renewcommand{\proof}{\color{gray}\oldproof}
+
+\theoremstyle{plain}
+\newtheorem{example}{例}
+
+
+
+
+% counter controlling
+\usepackage{chngcntr}
+\counterwithin{figure}{chapter}
+\counterwithin{equation}{chapter}
+\counterwithin{definition}{chapter}
+\counterwithin{theorem}{chapter}
+\counterwithin{lemma}{chapter}
+\counterwithin{example}{chapter}
+%\counterwithin{chapter}{part}
+\setcounter{tocdepth}{2}
+
+% package for subfiles
+\usepackage{subfiles}
+
+\usepackage{datetime2}
+
+\title{粒子示踪流变学}
+\author{孙尉翔\\mswxsun@scut.edu.cn}
+%=====================================================================================================================
+\begin{document}
+\section{Fourier变换与广义函数}
+\subfile{fourier_transform.tex}
+
+\end{document}
