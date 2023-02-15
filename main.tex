@@ -68,7 +68,8 @@ top=25.4mm,
 backend=biber,
 style=gb7714-2015,
 gbpub=false,
-sorting=none
+sorting=none,
+refsection=chapter,
 ]{biblatex}
 \addbibresource{./ref/ref.bib}
 
@@ -86,11 +87,11 @@ sorting=none
 \let\oldproof\proof
 \renewcommand{\proof}{\color{gray}\oldproof}
 
+% Math typesetting
+\newcommand*{\I}{\mathrm{i}\mkern1mu}
+
 \theoremstyle{plain}
 \newtheorem{example}{例}
-
-
-
 
 % counter controlling
 \usepackage{chngcntr}
@@ -112,7 +113,9 @@ sorting=none
 \author{孙尉翔\\mswxsun@scut.edu.cn}
 %=====================================================================================================================
 \begin{document}
-\section{Fourier变换与广义函数}
+\tableofcontents
+\chapter{Fourier变换}
 \subfile{fourier_transform.tex}
+\printbibliography[heading=subbibintoc]
 
 \end{document}
