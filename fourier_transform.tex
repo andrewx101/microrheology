@@ -56,9 +56,21 @@
 \[\tilde{f}\left(\mathbf{k}\right)=\int_{\mathbb{R}^n}d\mathbf{x}f\left(\mathbf{x}\right)\exp\left(-\I\mathbf{k}\cdot\mathbf{x}\right)\]
 $f$的Fourier变换存在的条件与上述$n=1$的条件相似。
 
+以下是一些常用的Fourier变换性质：
+\begin{enumerate}
+    \item 线性。若$h\left(x\right)=\alpha f\left(x\right)+g\left(x\right)$则$\tilde{h}\left(k\right)=\alpha\tilde{f}\left(k\right)+\tilde{g}\left(k\right),\forall \alpha\in\mathbb{R}$
+    \item 时移。若$h\left(x\right)=f\left(x-x_0\right)$，则$\tilde{h}\left(k\right)=e^{-\mathrm{i}kx_0}\tilde{f}\left(k\right),\forall x_0\in\mathbb{R}$。
+    \item 频移（调制）。若$h\left(x\right)=e^{-\mathrm{i}k_0x}f\left(x\right)$，则$\tilde{h}\left(k\right)=\tilde{f}\left(k-k_0\right),\forall k_0\in\mathbb{R}$。
+    \item 时域标度。若$h\left(x\right)=f\left(\alpha x\right)$，则$\tilde{h}\left(k\right)=\left|\alpha\right|^{-1}\tilde{f}\left(k\right),\forall \alpha\neq 0$。
+    \item 微分。$\mathcal{F}\left\{\frac{d}{dx}f\left(x\right)\right\}=\mathrm{i}k\mathcal{F}\left\{f\left(x\right)\right\},\quad\mathcal{F}\left\{\frac{d^n}{dx^n}f\left(x\right)\right\}=\left(\mathrm{i}k\right)^n\mathcal{f}\left\{f\left(x\right)\right\}$
+    \item 卷积。若$h\left(x\right)=\int_{-infty}^\infty\overline{f\left(x^\prime\right)}g\left(x+x^\prime\right)dx^\prime$称为$f\left(x\right)$与$g\left(x\right)$的\emph{卷积（convolution）}，则$\tilde{h}\left(k\right)=\tilde{f}\left(k\right)\tilde{g}\left(k\right)$。
+\end{enumerate}
+
+常见函数的Fourier变换对，可查Fourier变换表。
+
 % =================================================
 \section{狄拉克$\delta$函数}
-\emph{狄拉克$\delta$函数（Dirac's $\delta$-function）}$\delta\left(x\right)$是一个\emph{广义函数（generalized function）}。设定义在$\mathbb{R}$上的任一实值函数$f\left(x\right)$任意整数阶可微，且在$\mathbb{R}$的某一有界闭集外处处为零，则$\delta\left(x\right)$必须满足性质
+\emph{狄拉克$\delta$函数（Dirac's $\delta$-function）}$\delta\left(x\right)$（简称$\delta$函数）是一个\emph{广义函数（generalized function）}\footnote{本讲义不对广义函数进行正式的定义。读者只需要了解$\delta$函数的基本性质就可以了。广义函数在数学上又称作\emph{分布（distributions）}，可参考\cite{Richards1990}。}。设定义在$\mathbb{R}$上的任一实值函数$f\left(x\right)$任意整数阶可微，且在$\mathbb{R}$的某一有界闭集外处处为零，则$\delta\left(x\right)$必须满足性质
 \begin{equation}\label{eq:dirac_delta_1}
     \int_{-\infty}^{\infty}\delta\left(x\right)f\left(x\right)dx=f\left(0\right)
 \end{equation}
@@ -79,14 +91,14 @@ $f$的Fourier变换存在的条件与上述$n=1$的条件相似。
 \[\int_{-\infty}^\infty\delta\left(x\right)dx=1\]
 满足\eqref{eq:dirac_delta_2}。
 
-\begin{figure}[htbp]
+\begin{figure}[ht]
     \centering
     \includegraphics{../images/delta_series.pdf}
     \caption{函数序列$f_n\left(x\right)=e^{-nx^2}\left(\frac{n}{\pi}\right)^{1/2}$在$n=4,20,100$时的图像\cite{lighthill_1958}。}
     \label{fig:delta_series}
 \end{figure}
 
-要验证式式\eqref{eq:dirac_series_conv}还一般地满足\eqref{eq:dirac_delta_1}，我们需要证明
+要验证式\eqref{eq:dirac_series_conv}还一般地满足\eqref{eq:dirac_delta_1}，我们需要证明
 \[\lim_{n\to\infty}\int_{-\infty}^\infty dxf_n\left(x\right)f\left(x\right)=f\left(0\right)\]
 对$f\left(x\right)$关于$x=0$进行泰勒展开\footnote{函数$f$满足的性须使其必可进行泰勒展开。}：
 \[f\left(x\right)=\sum_{m=0}^\infty\frac{f^{\left(m\right)}\left(0\right)}{m!}x^m\]
@@ -122,9 +134,13 @@ $f$的Fourier变换存在的条件与上述$n=1$的条件相似。
         0, & \text{otherwise}\end{array}\right.
 \]
 
-在$\mathbb{R}^n$上，可定义$n$维$\delta$函数$\delta\left(\mathbf{x}\right)=\prod_{i=1}^n\delta\left(x_i\right),\quad \mathbf{x}=\left(x_1,\cdots,x_n\right)$。此时，对任一定义在$\mathbb{R}^n$上的无穷阶可微且在$\mathbb{R}^n$的某有界闭集外处处为零的函数$f\left(\mathbb{x}\right)$有
+在$\mathbb{R}^n$上，可定义$n$维$\delta$函数$\delta\left(\mathbf{x}\right)=\prod_{i=1}^n\delta\left(x_i\right),\quad \mathbf{x}=\left(x_1,\cdots,x_n\right)$。此时，对任一定义在$\mathbb{R}^n$上的无穷阶可微且在$\mathbb{R}^n$的某有界闭集外处处为零的函数$f\left(\mathbf{x}\right)$有
 \begin{equation}\label{eq:dirac_delta_3}
     \int_{\mathbb{R}^n}d\mathbf{x}\delta\left(\mathbf{x}-\mathbf{a}\right)f\left(\mathbf{x}\right)=f\left(\mathbf{a}\right)
 \end{equation}
+
+% =================================
+
+
 
 \end{document}
