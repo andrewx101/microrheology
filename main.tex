@@ -21,6 +21,7 @@ a4paper,
 \usepackage{stmaryrd}
 
 
+
 % packages for graphics
 \usepackage{graphicx}
 \graphicspath{ {./images/}{./images/} }
@@ -71,7 +72,7 @@ gbpub=false,
 sorting=none,
 refsection=chapter,
 ]{biblatex}
-\addbibresource{./ref/ref.bib}
+\addbibresource{ref/ref.bib}
 
 % packages for definitions, theorems, proofs.
 \usepackage{amsthm}
@@ -88,7 +89,7 @@ refsection=chapter,
 \renewcommand{\proof}{\color{gray}\oldproof}
 
 % Math typesetting
-\newcommand*{\I}{\mathrm{i}\mkern1mu}
+\newcommand*{\imagI}{\mathrm{i}\mkern1mu}
 
 \theoremstyle{plain}
 \newtheorem{example}{例}
@@ -114,14 +115,48 @@ refsection=chapter,
 %=====================================================================================================================
 \begin{document}
 \tableofcontents
-\chapter{Fourier变换}
+
+
+\part{数学基础}
+
+\chapter{集合论基础}
+\subfile{Part I/set_theor.tex}
+
+\chapter{测度论基础}
+\subfile{Part I/meas_theor.tex}
+
+
+
+\chapter{概率论基础}
+\subfile{Part I/prob.tex}
+
+
+
+\chapter{随机过程基础}
+
+
+\chapter{分布函数和傅里叶变换}
 \subfile{fourier_transform.tex}
+
+\chapter{拉普拉斯变换}
+\chapter{常微分方程}
 
 \chapter{偏微分方程}
 \subfile{PDE.tex}
 
+\chapter{随机微分方程基础}
 
+\chapter{朗之万方程}
 
-\printbibliography[heading=subbibintoc]
+\chapter{广义朗之万方程}
+
+\chapter{时间序列分析基础}
+\chapter{朗之万方程的离散化}
+\chapter{广义朗之万方程的离散化}
+
+\part{胶体粒子的布朗运动}
+
+\part{简单液体理论}
+
 
 \end{document}

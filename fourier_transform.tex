@@ -10,33 +10,33 @@
     a_n & =\frac{1}{L}\int_{-L}^L f\left(x\right)\cos\left(\frac{n\pi x}{L}\right)dx,                   \\
     b_n & =\frac{1}{L}\int_{-L}^L f\left(x\right)\sin\left(\frac{n\pi x}{L}\right)dx,\quad n=1,2,\cdots
 \end{align*}
-利用欧拉公式\footnote{正体小写字母$\I$专门用于表示虚数$\I\equiv\sqrt{-1}$。}
+利用欧拉公式\footnote{正体小写字母$\imagI$专门用于表示虚数$\imagI\equiv\sqrt{-1}$。}
 \begin{align*}
-    \cos\left(x\right) & =\frac{1}{2}\left(e^{\I x}+e^{-\I x}\right)   \\
-    \sin\left(x\right) & =\frac{1}{2\I}\left(e^{\I x}-e^{-\I x}\right)
+    \cos\left(x\right) & =\frac{1}{2}\left(e^{\imagI x}+e^{-\imagI x}\right)       \\
+    \sin\left(x\right) & =\frac{1}{2\imagI}\left(e^{\imagI x}-e^{-\imagI x}\right)
 \end{align*}
 式\eqref{eq:fourier_series_1}可表示为
 \begin{align}\label{eq:fourier_series_2}
-    f\left(x\right) & =\sum_{n=-\infty}^{\infty}c_ne^{\I n\pi x/L},\quad c_n=\frac{1}{2L}\int_{-L}^Lf\left(x\right)e^{-\I n\pi x/L}dx
+    f\left(x\right) & =\sum_{n=-\infty}^{\infty}c_ne^{\imagI n\pi x/L},\quad c_n=\frac{1}{2L}\int_{-L}^Lf\left(x\right)e^{-\imagI n\pi x/L}dx
 \end{align}
-其中$c_0=\frac{1}{2}a_0,c_n=\left(a_n-\I b_n\right)/2,c_{-n}=\left(a_n+\I b_n\right)/2=\overline{c_n}$。
+其中$c_0=\frac{1}{2}a_0,c_n=\left(a_n-\imagI b_n\right)/2,c_{-n}=\left(a_n+\imagI b_n\right)/2=\overline{c_n}$。
 
 函数可作Fourier展开（或说式\eqref{eq:fourier_series_1}或式\eqref{eq:fourier_series_2}等号右边的Fourier级数收敛）的条件——\emph{狄利克雷条件（Dirichlet conditions）}，请自行回顾\cite[定理11.6.1，p.301]{华工高数2009下}。
 
 若$f\left(x\right)$定义在$\mathbb{R}$上，则至少可考虑$f$限制在在区间$\left(-L,L\right)$上的函数$f_L:\left(-L,L\right)\rightarrow\mathbb{R},f_L\left(x\right)=f\left(x\right)$的Fourier级数，它将形如式\eqref{eq:fourier_series_2}。我们进一步进行如下处理：
 \begin{align*}
-    f_L\left(x\right)         & =\sum_{n=-\infty}^\infty c_ne^{-\I n\pi x/L}                                                                                         \\
-                              & =\sum_{n=-\infty}^\infty\left(\frac{1}{2L}\int_{-L}^L f_L\left(x^\prime\right)e^{-\I n\pi x^\prime/L}dx^\prime\right)e^{\I n\pi x/L} \\
-    \left(\frac{n}{2L}\right. & \equiv \left.y_n,\Delta y=y_{n+1}-y_n=\frac{1}{2L}\right)                                                                            \\
-                              & =\sum_{n=-\infty}^\infty\left[\int_{-L}^Lf_L\left(x^\prime\right)e^{-\I 2\pi y_nx^\prime}dx^\prime\right]e^{\I 2\pi xy_n\Delta y}
+    f_L\left(x\right)         & =\sum_{n=-\infty}^\infty c_ne^{-\imagI n\pi x/L}                                                                                             \\
+                              & =\sum_{n=-\infty}^\infty\left(\frac{1}{2L}\int_{-L}^L f_L\left(x^\prime\right)e^{-\imagI n\pi x^\prime/L}dx^\prime\right)e^{\imagI n\pi x/L} \\
+    \left(\frac{n}{2L}\right. & \equiv \left.y_n,\Delta y=y_{n+1}-y_n=\frac{1}{2L}\right)                                                                                    \\
+                              & =\sum_{n=-\infty}^\infty\left[\int_{-L}^Lf_L\left(x^\prime\right)e^{-\imagI 2\pi y_nx^\prime}dx^\prime\right]e^{\imagI 2\pi xy_n\Delta y}
 \end{align*}
 让$L\rightarrow\infty$，与此同时$\Delta y\rightarrow 0$，在黎曼积分可积条件下，上式可记作以下积分
 \begin{align}\label{eq:fourier_transform_1}
-    f\left(x\right) & =\int_{-\infty}{\infty}dy\left[\int_{-\infty}^\infty dxf\left(x\right)e^{-\I 2\pi yx}\right]e^{\I 2\pi xy}dy \\
-                    & =\int_{-\infty}^\infty dy\tilde{f}\left(y\right)e^{\I 2\pi xy}
+    f\left(x\right) & =\int_{-\infty}{\infty}dy\left[\int_{-\infty}^\infty dxf\left(x\right)e^{-\imagI 2\pi yx}\right]e^{\imagI 2\pi xy}dy \\
+                    & =\int_{-\infty}^\infty dy\tilde{f}\left(y\right)e^{\imagI 2\pi xy}
 \end{align}
 其中
-\[\tilde{f}\left(y\right)=\int_{-\infty}^\infty dxf\left(x\right)e^{-\I 2\pi yx}\]
+\[\tilde{f}\left(y\right)=\int_{-\infty}^\infty dxf\left(x\right)e^{-\imagI 2\pi yx}\]
 称$f\left(x\right)$的\emph{Fourier变换（Fourier transform）}，$f\left(x\right)$称$\tilde{f}\left(y\right)$的\emph{反Fourier变换（inverse Fourier transform）}，记为
 \[\tilde{f}\left(y\right)=\mathcal{F}\left\{f\left(x\right)\right\},\quad f\left(x\right)=\mathcal{F}^{-1}\left\{\tilde{f}\left(y\right)\right\}\]
 
@@ -50,10 +50,10 @@
 
 定义在$\mathbb{R}^n$上的函数$f:\mathbb{R}^n\rightarrow\mathbb{R}$的Fourier变换形如：
 \begin{equation}\label{eq:fourier_transform_2}
-    f\left(\mathbf{x}\right)=\frac{1}{\left(2\pi\right)^n}\int_{\mathbb{R}^n}d\mathbf{k}\tilde{f}\left(\mathbf{k}\right)\exp\left(\I \mathbf{k}\cdot\mathbf{x}\right)
+    f\left(\mathbf{x}\right)=\frac{1}{\left(2\pi\right)^n}\int_{\mathbb{R}^n}d\mathbf{k}\tilde{f}\left(\mathbf{k}\right)\exp\left(\imagI \mathbf{k}\cdot\mathbf{x}\right)
 \end{equation}
 其中
-\[\tilde{f}\left(\mathbf{k}\right)=\int_{\mathbb{R}^n}d\mathbf{x}f\left(\mathbf{x}\right)\exp\left(-\I\mathbf{k}\cdot\mathbf{x}\right)\]
+\[\tilde{f}\left(\mathbf{k}\right)=\int_{\mathbb{R}^n}d\mathbf{x}f\left(\mathbf{x}\right)\exp\left(-\imagI\mathbf{k}\cdot\mathbf{x}\right)\]
 $f$的Fourier变换存在的条件与上述$n=1$的条件相似。
 
 以下是一些常用的Fourier变换性质：
@@ -69,7 +69,7 @@ $f$的Fourier变换存在的条件与上述$n=1$的条件相似。
 常见函数的Fourier变换对，可查Fourier变换表。
 
 % =================================================
-\section{狄拉克$\delta$函数}
+\section{狄拉克delta函数}
 \emph{狄拉克$\delta$函数（Dirac's $\delta$-function）}$\delta\left(x\right)$（简称$\delta$函数）是一个\emph{广义函数（generalized function）}\footnote{本讲义不对广义函数进行正式的定义。读者只需要了解$\delta$函数的基本性质就可以了。广义函数在数学上又称作\emph{分布（distributions）}，可参考\cite{Richards1990}。}。设定义在$\mathbb{R}$上的任一实值函数$f\left(x\right)$任意整数阶可微，且在$\mathbb{R}$的某一有界闭集外处处为零，则$\delta\left(x\right)$必须满足性质
 \begin{equation}\label{eq:dirac_delta_1}
     \int_{-\infty}^{\infty}\delta\left(x\right)f\left(x\right)dx=f\left(0\right)

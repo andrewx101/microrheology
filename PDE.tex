@@ -44,15 +44,31 @@
 \begin{equation}\label{eq:linear_PDE}
     P\left(x,y,f\right)\frac{\partial f}{\partial x}+Q\left(x,y,f\right)\frac{\partial f}{\partial y}=R\left(x,y,f\right)
 \end{equation}
-的形式，则为一阶拟线性（quasilinear）偏微分方程；当函数$P$、$Q$不依赖未知函数$f$时，则为一阶半线性（semilinear）偏微分方程；当函数$P$、$Q$、$R$都不依赖特征函数$f$时，则为一阶线性（linear）偏微分方程。如果上式符合一阶线性偏微分方程要求且$R=0$，则称方程是齐次的（homogeneous），否则称其为非齐次的（nonhomogeneous）。以下我们专门讨论一阶线性偏微分方程。
+的形式，则为一阶\emph{拟线性（quasilinear）}偏微分方程；当函数$P$、$Q$不依赖未知函数$f$时，则为一阶\emph{半线性（semilinear）}偏微分方程；当函数$P$、$Q$、$R$都不依赖特征函数$f$时，则为一阶\emph{线性（linear）}偏微分方程。如果上式符合一阶线性偏微分方程要求且$R=0$，则称方程是\emph{齐次的（homogeneous）}，否则称其为\emph{非齐次的（nonhomogeneous）}。以下我们专门讨论一阶线性偏微分方程。
 
 常微分方程组
 \[
     \frac{dx}{P\left(x,y,f\right)}=\frac{dy}{Q\left(x,y,f\right)}=\frac{df}{R\left(x,y,f\right)}
 \]
-称方程\eqref{eq:linear_PDE}的特征方程组。解第1个等号得$x/P=y/Q+C_1$，解第二个等号得$y/Q=f/R+C_2$。可验证，给定任意函数$\Psi\left(u\right)$，$C_2=\Psi\left(C_1\right)$是方程\eqref{eq:linear_PDE}的通解，即
-\[
+称方程\eqref{eq:linear_PDE}的特征方程组。它很有用。解第1个等号得$x/P=y/Q+C_1$，解第二个等号得$y/Q=f/R+C_2$。消去$y/Q$并整理至可验证，给定任意函数$\Psi\left(u\right)$，$C_2=\Psi\left(C_1\right)$是方程\eqref{eq:linear_PDE}的通解，即
+\begin{equation}\label{eq:linear_PDE_char_eq}
     \frac{y}{Q}-\frac{f}{R}=\Psi\left(\frac{x}{P}-\frac{y}{Q}\right)\Leftrightarrow f=\frac{Ry}{Q}-R\Psi\left(\frac{x}{P}-\frac{y}{Q}\right)
-\]
-是方程\eqref{eq:linear_PDE}的通解。
+\end{equation}
+是方程\eqref{eq:linear_PDE}的通解。所以，只要我们通过解一个偏微分方程的特征方程组，再用$C_1$表示出$C_2$（即获得了函数$\Psi$的形式），那么就立刻得出了原方程的通解式\eqref{eq:linear_PDE_char_eq}。
+
+% 以下关于柯西问题的介绍太简了。
+给定方程的边条件
+\begin{align}\label{eq:linear_PDE_BCs}
+    x & =g_1\left(t\right),                      \\
+    y & =g_2\left(t\right),                      \\
+    f & =g_3\left(t\right), t\in\left[a,b\right]
+\end{align}
+找出方程\eqref{eq:linear_PDE}的解的问题，称为\emph{柯西问题（Cauchy problem）}。柯西问题的几何意义是，找出由方程\eqref{eq:linear_PDE}定义的曲面集中经过由\eqref{eq:linear_PDE_BCs}定义的曲面的一束。
+
+特别地，给定边条件$f=g\left(y\right),x=0$的柯西问题称经典柯西问题。写回其参数形式：$g_1\left(t\right)\equiv 0,g_2\left(t\right)=t,g_3\left(t\right)=g\left(t\right)$。
+
+%==================================
+\section{二阶偏微分方程}
+
+
 \end{document}
