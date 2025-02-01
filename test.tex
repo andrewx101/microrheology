@@ -1,0 +1,29 @@
+\documentclass{ctexart}  
+
+%\usepackage{fontspec}               % Load fontspec  
+%\usepackage{unicode-math}           % Load unicode-math  
+%\setmathfont{Latin Modern Math}     % Set the math font to Latin Modern Math  
+%\setmathfont{STIX Math}            % Set the math font to STIX Math
+
+
+
+\usepackage{amsmath}                % AMS math features  
+\usepackage{amssymb}                % AMS symbols  
+\usepackage{calrsfs}                % Calligraphic script fonts  
+\usepackage{bm}                     % Bold math symbols  
+\usepackage{stmaryrd}               % Load stmaryrd after unicode-math  
+
+\begin{document}
+设关系$\sim$是集合$X$上的一个等价关系，则集合
+\[\left\llbracket x\right\rrbracket_\sim \equiv \left\{ y \mid y \in X \wedge \left( \exists x \in X, y \sim x \right) \right\}\]
+称$x$关于$\sim$的\emph{等价类（equivalent class）}\footnote{“类”与“集合”在概念上无实质区别。}。
+
+$X$的元素关于$\sim$的所有等价类的集合，记作$X/\sim$\footnote{注意与相对补集的符号相区别。}，称为集合$X$在等价关系$\sim$下的\emph{商集（quotient set）}\footnote{正式地，
+    \[
+        X/\sim \equiv \left\{ A \in \mathcal{P}(X) \mid \forall x \left( x \in A \wedge \left\llbracket x \right\rrbracket_{\sim} = A \right) \right\}
+    \]
+}。
+
+$\bm{\mu}$
+
+\end{document}

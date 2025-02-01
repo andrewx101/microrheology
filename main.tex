@@ -10,15 +10,20 @@ a4paper,
 %top=25.4mm,
 }
 \setlength{\headheight}{14.5pt}
+
 % package for colors
 \usepackage{xcolor}
 
 % packages for fonts and symbols
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{bm}
+\usepackage{amsmath}                % AMS math features  
+\usepackage{amssymb}                % AMS symbols  
+\usepackage{calrsfs}                % Calligraphic script fonts
 \usepackage{calrsfs}
-\usepackage{stmaryrd}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\usepackage{stmaryrd}               % Load stmaryrd after unicode-math
+\SetSymbolFont{stmry}{bold}{U}{stmry}{m}{n} % make stmaryrd bold
+\usepackage{upgreek}               % Upright Greek letters  
+\usepackage{bm}                     % Bold math symbols  
 
 
 
@@ -158,6 +163,7 @@ refsection=chapter,
 
 \part{简单液体理论}
 \chapter{液体涨落性质的时间相关函数}
+\subfile{Part II/TCF.tex}
 
 
 

@@ -1,12 +1,12 @@
-\documentclass[main.tex]{subfiles}
+\documentclass[../main.tex]{subfiles}
 \begin{document}
 本章是在华南理工大学编写的概率论与数理统计教材\cite{何春雄2012}（以下简称本科教材）基础上的补充。
 
 
 
 \section{正态分布的随机向量}
-在本科教材的例3.3.4、例3.3.5已经介绍过$n$维正态分布，在这里我们正式地给出定义。设$\mathbf{X}=\left(X_1,\dots,X_n\right)^\intercal$是一个随机向量。如果存在一个向量$\boldsymbol{\mu}=\left(\mu_1,\cdots,\mu_n\right)$和一个对称、半正定$n\times n$矩阵$\boldsymbol{\Sigma}$，使得$\mathbf{X}$的特征函数是
-\[\varphi_{\mathbf{X}}\left(\mathbf{u}\right)=\exp\left(\imagI\mathbf{u}^\intercal\boldsymbol{\mu}-\frac{1}{2}\mathbf{u}^\intercal\boldsymbol{\Sigma}\mathbf{u}\right)\]
+在本科教材的例3.3.4、例3.3.5已经介绍过$n$维正态分布，在这里我们正式地给出定义。设$\mathbf{X}=\left(X_1,\dots,X_n\right)^\intercal$是一个随机向量。如果存在一个向量$\bm{\mu}=\left(\mu_1,\cdots,\mu_n\right)$和一个对称、半正定$n\times n$矩阵$\bm{\Sigma}$，使得$\mathbf{X}$的特征函数是
+\[\varphi_{\mathbf{X}}\left(\mathbf{u}\right)=\exp\left(\imagI\mathbf{u}^\intercal\bm{\mu}-\frac{1}{2}\mathbf{u}^\intercal\bm{\Sigma}\mathbf{u}\right)\]
 则称随机向量$\mathbf{X}$满足$n$维正态分布，记作$\mathbf{X}\sim\mathcal{N}\left(\boldsymbol{\mu},\boldsymbol{\Sigma}\right)$。如果$\boldsymbol{\Sigma}$是非奇异的，就称这种情况为非退化情况（nondegenerate case），反之则称为退化情况（degenerate case）。在退化情况下，$\mathbf{X}$没有普通意义的概率密度函数。我们只讨论非退化情况并不再说明，此时要求定义中的$\boldsymbol{\Sigma}$是正定的。
 
 从上述定义可以推出，$\mathbf{X}$的概率密度函数、期望、和协方差矩阵如下

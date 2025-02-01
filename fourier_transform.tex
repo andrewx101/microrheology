@@ -1,4 +1,4 @@
-\documentclass[main.tex]{subfiles}
+\documentclass[../main.tex]{subfiles}
 \begin{document}
 \section{Fourier变换的引入}
 对于周期为$2L$的周期函数，或定义在$\left[-L,L\right]$上的函数$f\left(x\right)$，其\emph{Fourier级数（Fourier series）}展开\cite[\S 11.5, \S 11.6]{华工高数2009下}形如
@@ -62,7 +62,7 @@ $f$的Fourier变换存在的条件与上述$n=1$的条件相似。
     \item 时移。若$h\left(x\right)=f\left(x-x_0\right)$，则$\tilde{h}\left(k\right)=e^{-\mathrm{i}kx_0}\tilde{f}\left(k\right),\forall x_0\in\mathbb{R}$。
     \item 频移（调制）。若$h\left(x\right)=e^{-\mathrm{i}k_0x}f\left(x\right)$，则$\tilde{h}\left(k\right)=\tilde{f}\left(k-k_0\right),\forall k_0\in\mathbb{R}$。
     \item 时域标度。若$h\left(x\right)=f\left(\alpha x\right)$，则$\tilde{h}\left(k\right)=\left|\alpha\right|^{-1}\tilde{f}\left(k\right),\forall \alpha\neq 0$。
-    \item 微分。$\mathcal{F}\left\{\frac{d}{dx}f\left(x\right)\right\}=\mathrm{i}k\mathcal{F}\left\{f\left(x\right)\right\},\quad\mathcal{F}\left\{\frac{d^n}{dx^n}f\left(x\right)\right\}=\left(\mathrm{i}k\right)^n\mathcal{f}\left\{f\left(x\right)\right\}$
+    \item 微分。$\mathcal{F}\left\{\frac{d}{dx}f\left(x\right)\right\}=\mathrm{i}k\mathcal{F}\left\{f\left(x\right)\right\},\quad\mathcal{F}\left\{\frac{d^n}{dx^n}f\left(x\right)\right\}=\left(\mathrm{i}k\right)^n\mathcal{F}\left\{f\left(x\right)\right\}$
     \item 卷积。若$h\left(x\right)=\int_{-infty}^\infty\overline{f\left(x^\prime\right)}g\left(x+x^\prime\right)dx^\prime$称为$f\left(x\right)$与$g\left(x\right)$的\emph{卷积（convolution）}，则$\tilde{h}\left(k\right)=\tilde{f}\left(k\right)\tilde{g}\left(k\right)$。
 \end{enumerate}
 
