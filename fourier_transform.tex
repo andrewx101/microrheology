@@ -32,7 +32,7 @@
 \end{align*}
 让$L\rightarrow\infty$，与此同时$\Delta y\rightarrow 0$，在黎曼积分可积条件下，上式可记作以下积分
 \begin{align}\label{eq:fourier_transform_1}
-    f\left(x\right) & =\int_{-\infty}{\infty}dy\left[\int_{-\infty}^\infty dxf\left(x\right)e^{-\imagI 2\pi yx}\right]e^{\imagI 2\pi xy}dy \\
+    f\left(x\right) & =\int_{-\infty}^{\infty}dy\left[\int_{-\infty}^\infty dxf\left(x\right)e^{-\imagI 2\pi yx}\right]e^{\imagI 2\pi xy}dy \\
                     & =\int_{-\infty}^\infty dy\tilde{f}\left(y\right)e^{\imagI 2\pi xy}
 \end{align}
 其中
@@ -44,7 +44,7 @@
 \begin{enumerate}
     \item $f\left(x\right)$绝对可积，即$\int_{-\infty}^{\infty}\left|f\left(x\right)\right|dx<\infty$
     \item $f\left(x\right)$在$\mathbb{R}$的任一有限区间上具有有限个极值
-    \item $f\left(X\right)$在$\mathbb{R}$的任一有限区间上具有有限个不连续点，且在这些点上$f\left(x\right)$取有限函数值。
+    \item $f\left(x\right)$在$\mathbb{R}$的任一有限区间上具有有限个不连续点，且在这些点上$f\left(x\right)$取有限函数值。
 \end{enumerate}
 等价地，可以说连续函数或具有有限个不连续点的有界函数存在Fourier变换。
 
@@ -63,10 +63,14 @@ $f$的Fourier变换存在的条件与上述$n=1$的条件相似。
     \item 频移（调制）。若$h\left(x\right)=e^{-\mathrm{i}k_0x}f\left(x\right)$，则$\tilde{h}\left(k\right)=\tilde{f}\left(k-k_0\right),\forall k_0\in\mathbb{R}$。
     \item 时域标度。若$h\left(x\right)=f\left(\alpha x\right)$，则$\tilde{h}\left(k\right)=\left|\alpha\right|^{-1}\tilde{f}\left(k\right),\forall \alpha\neq 0$。
     \item 微分。$\mathcal{F}\left\{\frac{d}{dx}f\left(x\right)\right\}=\mathrm{i}k\mathcal{F}\left\{f\left(x\right)\right\},\quad\mathcal{F}\left\{\frac{d^n}{dx^n}f\left(x\right)\right\}=\left(\mathrm{i}k\right)^n\mathcal{F}\left\{f\left(x\right)\right\}$
+<<<<<<< Updated upstream
     \item 卷积。若$h\left(x\right)=\int_{-infty}^\infty\overline{f\left(x^\prime\right)}g\left(x+x^\prime\right)dx^\prime$称为$f\left(x\right)$与$g\left(x\right)$的\emph{卷积（convolution）}，则$\tilde{h}\left(k\right)=\tilde{f}\left(k\right)\tilde{g}\left(k\right)$。
+=======
+    \item 卷积。若$h\left(x\right)=\int_{-\infty}^\infty\overline{f\left(x^\prime\right)}g\left(x+x^\prime\right)dx^\prime$称为$f\left(x\right)$与$g\left(x\right)$的\emph{卷积（convolution）}，则$\tilde{h}\left(k\right)=\tilde{f}\left(k\right)\tilde{g}\left(k\right)$。
+>>>>>>> Stashed changes
 \end{enumerate}
 
-常见函数的Fourier变换对，可查Fourier变换表。
+% 常见函数的Fourier变换对，可查Fourier变换表。
 
 % =================================================
 \section{狄拉克delta函数}
@@ -139,7 +143,7 @@ $f$的Fourier变换存在的条件与上述$n=1$的条件相似。
     \int_{\mathbb{R}^n}d\mathbf{x}\delta\left(\mathbf{x}-\mathbf{a}\right)f\left(\mathbf{x}\right)=f\left(\mathbf{a}\right)
 \end{equation}
 
-% =================================
+=================================
 
 
 

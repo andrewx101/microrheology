@@ -376,7 +376,7 @@ $V$的唯一性简证如下：若另有一$V^\prime=\left\{x\in A|x\in B\right\}
         \item $g$是满射。因为，仅$y\in\mathrm{ran}f$情况的定义式就已决定了$\mathrm{ran}g=X$。
         \item $g$是非单射。因为$g$是满射，再考虑$y\notin\mathrm{ran}f,y\in Y$情况的定义式，就可知$\exists x\in X$满足$x=g\left(y\right)=g\left(y^\prime\right)$，其中$y\neq y^\prime,y\in\mathrm{ran}f,y^\prime\notin\mathrm{ran}f,y^\prime\in Y$。
         \item $g$是$f$的逆映射。因为，对于任一$x\in X$均有$g\circ f\left(x\right)\equiv g\left(f\left(x\right)\right)=x$，即$g\circ f=\mathrm{id}_X$。
-        \item 一般地，$g$是不唯一的。因为$y\notin\mathrm{f},y\in Y$的情况可定义$g\left(x\right)$等于任一$x\in X$，故只要集合$X$不是只有一个元素，那么$g$都不唯一。
+        \item 一般地，$g$是不唯一的。因为$y\notin\mathrm{ran}f,y\in Y$的情况可定义$g\left(x\right)$等于任一$x\in X$，故只要集合$X$不是只有一个元素，那么$g$都不唯一。
     \end{enumerate}
     该引理证毕。
 
@@ -395,7 +395,9 @@ $V$的唯一性简证如下：若另有一$V^\prime=\left\{x\in A|x\in B\right\}
     \bigcap_{X\in\mathcal{C}}X=\bigcap_{i\in I}X_i,\quad\bigcup_{X\in\mathcal{C}}X=\bigcup_{i\in I}X_i
 \]
 
-下面我们介绍多于两个集合的笛卡尔集的定义\footnote{第一节中引入的两个集合的笛卡尔集定义，无法推广至不可数无穷多个集合间的笛卡尔积。所以，我们在介绍了映射之后，在族的基础上可重新定义笛卡尔集。这个新的定义，在集合个数为两个的情况下，也导致一种与老定义不同的“有序对”，但是新定义和老定义得出有序对之间总是一一对应的，因此无所谓从哪种定义去理解有序对。虽然笛卡尔积的新定义既兼容两个集合间的情况（甚至把“一个集合的笛卡尔集”也定义了），又能够推广到不可数无穷个集合间的笛卡尔集，但是它却不能在一开始就采用，因为它依赖映射的定义，而映射是一种关系，关系的定义依赖有序对的定义。所以我们至少需要先以老定义获得有序对的概念，才能走到现在这一步。}
+其中一种常见的索引族是序列。\emph{序列（sequence）}是指按某种顺序被排成一列的\emph{可数}数学实体（如数字、函数等）。设$S$是一个集合，函数$f:\mathbb{N}\rightarrow S$称定义在$S$上的\emph{无穷（限）序列}。通常把函数值$f\left(i\right)$记作$f_i$，函数本身则记为$\left\{f_i\right\}_{i\in\mathbb{N}}$；若给定一个正整数$n\in\mathbb{N}$，则函数$g:\left\{1,2,\cdots,n\right\}\rightarrow S$称定义在$S$上的\emph{有限序列},通常将$g\left(i\right)$记作$g_i$，$g$本身记作$\left\{g_i\right\}_{i=1}^n$。每一个序列值称为序列的\emph{项（term）}。结合索引族的定义，我们可知序列是以自然数集或其子集作为索引集的索引族。我们以前学过的数列，就是一种序列。
+
+下面我们介绍多于两个集合的笛卡尔集的定义\footnote{第一节中引入的两个集合的笛卡尔集定义，无法推广至不可数无穷多个集合间的笛卡尔积。所以，我们在介绍了映射之后，在族的基础上可重新定义笛卡尔集。这个新的定义，在集合个数为两个的情况下，也导致一种与老定义不同的“有序对”，但是新定义和老定义得出有序对之间总是一一对应的，因此无所谓从哪种定义去理解有序对。虽然笛卡尔积的新定义既兼容两个集合间的情况（甚至把“一个集合的笛卡尔集”也定义了），又能够推广到不可数无穷个集合间的笛卡尔集，但是它却不能在一开始就采用，因为它依赖映射的定义，而映射是一种关系，关系的定义依赖有序对的定义。所以我们至少需要先以老定义获得有序对的概念，才能走到现在这一步。}。
 
 \begin{definition}[笛卡尔积]\label{def:Cartesian_product_family}
     设$\left\{S_i\right\}_{i\in I}$是由$I$索引的族，且它是集合的索引族，$\left\{s_i\right\}_{i\in I}$也是由$I$索引的族，且$s_i\in S_i,\forall i\in I$。我们称$\left\{S_i\right\}_{i\in I}$的笛卡尔积是由$\left\{S_i\right\}_{i\in I}$得出的所有族$\left\{s_i\right\}_{i\in I}$的集合，记为
@@ -453,3 +455,4 @@ $V$的唯一性简证如下：若另有一$V^\prime=\left\{x\in A|x\in B\right\}
     \bigcap_{i=a}^b X_i,\quad\bigcup_{i=a}^b X_i,\quad\prod_{i=a}^b X_i
 \]
 特别地，若$X_i=X,\forall i\in I$，令$n=b-a+1$，$\left\{X_i\right\}_{i=a}^b$的笛卡尔积可记为$X^n$。例如，$\mathbb{R}^n$是所有有序实数$n$元组$\left(x_1,\cdots,x_n\right),x_1,\cdots,x_n\in\mathbb{R}$的集合。在数学中我们常常会称$\mathbb{R}^n$是“$n$维”的。因此，定义\ref{def:Cartesian_product_family}的好处是它可以支持各种无穷维空间的构造。
+

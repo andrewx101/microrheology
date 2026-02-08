@@ -75,6 +75,7 @@ style=gb7714-2015,
 gbpub=false,
 sorting=none,
 refsection=chapter,
+citereset=chapter,
 ]{biblatex}
 \addbibresource{ref/ref.bib}
 
@@ -126,27 +127,34 @@ refsection=chapter,
 \chapter{集合论基础}
 \subfile{Part I/set_theor.tex}
 
+\printbibliography[heading=subbibliography]
+
 \chapter{测度论基础}
 \subfile{Part I/meas_theor.tex}
+\printbibliography[heading=subbibliography]
 
 
 
 \chapter{概率论基础}
 \subfile{Part I/prob.tex}
+\printbibliography[heading=subbibliography]
 
 
 
 \chapter{随机过程基础}
+\printbibliography[heading=subbibliography]
 
 
 \chapter{分布函数和傅里叶变换}
 \subfile{fourier_transform.tex}
+\printbibliography[heading=subbibliography]
 
 \chapter{拉普拉斯变换}
 \chapter{常微分方程}
 
 \chapter{偏微分方程}
 \subfile{PDE.tex}
+\printbibliography[heading=subbibliography]
 
 \chapter{随机微分方程基础}
 
@@ -155,11 +163,13 @@ refsection=chapter,
 \chapter{广义朗之万方程}
 
 \chapter{时间序列分析基础}
-\chapter{朗之万方程的离散化}
-\chapter{广义朗之万方程的离散化}
 
 \part{胶体粒子的布朗运动}
-
+\chapter{胶体粒子布朗运动的测量学}
+\chapter{朗之万方程的离散化}
+\subfile{Part II/Langevin_discrete.tex}
+\chapter{广义朗之万方程的离散化}
+\printbibliography[heading=subbibliography]
 \part{简单液体理论}
 \chapter{刘维尔方程}
 \subfile{Part II/Liouville.tex}

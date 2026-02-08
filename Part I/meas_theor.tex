@@ -2,11 +2,9 @@
 \begin{document}
 我们希望集合能有“大小”的概念。凭简单直觉，在这样的概念下，一个集合应该要总比它的真子集大，几个子集的并集总比这些子集都大。怎么严格定义出这样的概念呢？
 
-一个大概的思路就是构建一个映射$\mu:\mathcal{P}\left(\Omega\right)\rightarrow\mathbb{R}^+$，其中$\Omega$是一个非空集合，$\mathcal{P}\left(\Omega\right)$是$\Omega$的所有子集的集合，称$\Omega$的\emph{幂集（power set）}。映射$\mu$把一个集合对应为一个非负实数。
+一个大概的思路就是构建一个映射$\mu:\mathcal{P}\left(\Omega\right)\rightarrow\mathbb{R}^+$，其中$\Omega$是一个非空集合，$\mathcal{P}\left(\Omega\right)$是$\Omega$的所有子集的集合，称$\Omega$的\emph{幂集（power set）}。映射$\mu$把每一个$\Omega$的子集都对应为一个非负实数。像$\mu$这样，把一个集合对应为一个数的函数，叫做\emph{集合函数（set function）}。我们准备用这样的函数来表征$\Omega$的任何一个子集的“大小”。显然，光让$\Omega$的每个子集都对应为一个非负实数，并不足以作为这些子集的“大小”的表征。在集合论中，比较接近集合的“大小比较”概念的是包含关系。如果$A$、$B$都是$\Omega$的子集，且$A\subset B$，那么我们会认为集合$B$比$A$“大”，因而也希望$\mu\left(B\right)>\mu\left(A\right)$。当然，这些都只是粗略的想法。当我们严格地、一般性地考虑这个问题的时候，将会面临一些问题。本节将简单介绍这些问题。
 
-像$\mu$这样，把一个集合对应为一个数的函数，叫做\emph{集合函数（set function）}。我们准备用这样的函数来表征$\Omega$的任何一个子集的“大小”。表征集合的“大小”，对于有限集来说，并不是什么特别的问题；集合的元素的个数就能作为它的“大小”的一个表征。但是许多集合是无穷集。比如，实数轴上的连通区间$\left[a,b\right]$上有无穷多个点。我们已经知道，可以用绝对值$\left|b-a\right|$来表征这种连通区间的长度。但是这不是唯一可行的定义。比如我们可以用任意正整数$n$的$\left(b-a\right)^n$表达式来表征连通区间的长度。但是，我们不接受“负值”的长度，我们也不接受，若$b^\prime>b$，$\left[a,b\right]$的长度小于$\left[a,b^\prime\right]$……等等。
-
-实数$\mathbb{R}$或$n$维欧几里得空间都已经配备了运算性质，使得我们可以方便的定义无穷点集的大小。但一般的集合，并不一定是数集或点集，我们仍然希望定义关于一般集合的集合函数，并满足我们直观上关于“大小”的概念。比如，就映射$\mu$的定义而言，空集$\emptyset$也是$\Omega$的子集，我们希望空集的“大小”为零，即$\mu\left(\emptyset\right)=0$。集合$\Omega$本身也是它自己的子集，我们希望它应该比所有其他子集都“大”。更一般地，如果有两个$\Omega$的子集$A$和$B$，我们无法通过计数它们的元素个数来知道它们谁更“大”，但我们至少可以说，$C=A\cup B$肯定不能小于$A$或$B$。因此我们希望$\mu\left(A\cup B\right)\leq\mu\left(A\right)$。如果$A_1\subset A_2\subset\cdots\subset A_k$，那么最好能有$\mu\left(A_1\right)\leq\mu\left(A_2\right)\leq\cdots\mu\left(A_k\right)$……等等。但是，严格的讨论将会发现，以上想法太粗糙，将会碰到很多奇怪的特例。我们先按目前的想法定义相应的集合函数，它将被称作“外测度”。
+以下关于“外测度”的定义，代表我们对“集合的大小”的初步定义。
 
 \begin{definition}[外测度]
     如果集合函数$\mu^*:\Omega\rightarrow\left[0,\infty\right]$满足：
@@ -14,12 +12,64 @@
         \item $\mu^*\left(\emptyset\right)=0$；
         \item 单调性（monotonicity）：$A\subset B\subset \Omega\Rightarrow\mu^*\left(A\right)\leq\mu^*\left(B\right)$；
         \item 可数个\footnote{
-                  可数（countable）包括有限个和可数无穷个两种情况。可数无穷（countably infinite）是集合论中的一个概念，用来描述某种类型的无穷集合的大小。一个集合如果是可数无穷的，意味着它的元素可以与自然数集$\mathbb{N} = \left\{1, 2, 3, \cdots\right\}$之间建立一个一一对应（即双射）的关系。换句话说，可数无穷集合的元素可以被排列成一个无限的序列，每个元素都有一个唯一的自然数与之对应。例如，$\mathbb{N} = \left\{1, 2, 3, \cdots\right\}$ 是最典型的可数无穷集合。整数集$\mathbb{Z} = \left\{\ldots, -3, -2, -1, 0, 1, 2, 3, \cdots\right\}$ 也是可数无穷的，尽管它既包含正数也包含负数，但可以通过一种特殊的排列方式（如先列举0，然后列举1和-1，接着是2和-2，以此类推）来与自然数集建立一一对应关系。有理数集$\mathbb{Q}$，即所有可以表示为两个整数之比的数的集合，也是可数无穷的。尽管有理数在实数线上是稠密的（即在任意两个实数之间都有无穷多个有理数），但可以通过一种巧妙的排列方式（如Cantor的对角线论证）来证明它们是可数无穷的。实数集$\mathbb{R}$不是可数无穷的，它是不可数无穷（uncountably infinite）。Cantor通过对角线论证展示了无法将实数集与自然数集之间建立起一一对应的关系，因此实数集的势（cardinality）大于自然数集的势。}子集的次可加性（countable subadditivity）：$\mu^*\left(\bigcup_{i=1}^\infty A_i\right)\leq \sum_{i=1}^\infty\mu^*\left(A_i\right)$
+                  可数（countable）包括有限个和可数无穷个两种情况。可数无穷（countably infinite）是集合论中的一个概念，用来描述某种类型的无穷集合的大小。一个集合如果是可数无穷的，意味着它的元素可以与自然数集$\mathbb{N} = \left\{1, 2, 3, \cdots\right\}$之间建立一个一一对应（即双射）的关系。换句话说，可数无穷集合的元素可以被排列成一个无限的序列，每个元素都有一个唯一的自然数与之对应。例如，$\mathbb{N} = \left\{1, 2, 3, \cdots\right\}$ 是最典型的可数无穷集合。整数集$\mathbb{Z} = \left\{\ldots, -3, -2, -1, 0, 1, 2, 3, \cdots\right\}$ 也是可数无穷的，尽管它既包含正数也包含负数，但可以通过一种特殊的排列方式（如先列举0，然后列举1和-1，接着是2和-2，以此类推）来与自然数集建立一一对应关系。有理数集$\mathbb{Q}$，即所有可以表示为两个整数之比的数的集合，也是可数无穷的。尽管有理数在实数线上是稠密的（即在任意两个实数之间都有无穷多个有理数），但可以通过一种巧妙的排列方式（如Cantor的对角线论证）来证明它们是可数无穷的。实数集$\mathbb{R}$不是可数无穷的，它是不可数无穷（uncountably infinite）。Cantor通过对角线论证展示了无法将实数集与自然数集之间建立起一一对应的关系，因此实数集的势（cardinality）大于自然数集的势。}子集的次可加性\footnote{所谓“次可加性”，就是指定义中第3条使用“$\leq$”号而不是“$=$”号。}（countable subadditivity）：$\mu^*\left(\bigcup_{i=1}^\infty A_i\right)\leq \sum_{i=1}^\infty\mu^*\left(A_i\right)$
     \end{enumerate}
     则称函数$\mu^*$是定义在集合$\Omega$上的一个\emph{外测度（outer measure）}。
 \end{definition}
 
-所谓“次可加性”，就是指定义中只敢用“$\leq$”号。为啥我们不直接定义可加性（additivity），即$\mu^*\left(\bigcup_{i=1}^\infty A_i\right)=\sum_{i=1}^\infty\mu^*\left(A_i\right)$呢？因为我们没有规定这些$A_i$是两两不交（pairwise disjoint）的。如果$\mu^*\left(A\right)=\mu^*\left(A^\prime\right)$、$\mu^*\left(B\right)=\mu^*\left(B^\prime\right)$，$A\cap B=\emptyset$、$A^\prime\cap B^\prime\neq\emptyset$，那么我们确实不希望$A\cup B$的“大小”等于$A^\prime\cup B^\prime$的“大小”；前者应该“大”于后者。但如果我们给集合函数$\mu^*$定义了严格的可加性，那就只会得到$\mu^*\left(A\cup B\right)=\mu^*\left(A^\prime\cup B^\prime\right)$，不符合我们的意图。
+对每个集合都，能在其所有子集之上定义外测度。
+
+\begin{example}
+    以下是一些外测度的例子。
+    \begin{enumerate}
+        \item \emph{平凡测度（the trivial measure）}：令$\mu^*\left(A\right)=0,\forall A\subset\Omega$。
+        \item \emph{离散测度（the discrete measure）}：令
+              \[\mu^*\left(A\right)=\left\{\begin{array}{ll}1,&A\neq\emptyset\\0,&A=\emptyset\end{array}\right.\quad\forall A\subset\Omega\]
+        \item \emph{狄拉克测度（Dirac measure）}：给定$\omega\in\Omega$，令
+              \[\mu^*\left(A\right)=\left\{\begin{array}{ll}1,&\omega\in\Omega\\0,&\omega\notin\Omega\end{array}\right.\quad\forall A\subset\Omega\]
+    \end{enumerate}
+\end{example}
+
+以上简单的外测度，都能在任一集合$\Omega$上定义出来，但是它们与“集合的大小”意义差别很大。下例是一个更接近“集合的大小”意义的一种外测度。
+
+\begin{example}[勒贝格外测度]
+    考虑$\mathbb{R}^n$中的$n$-维闭区间
+    \[I=\left\{x_i\in\mathbb{R}|a_i\leq x_i\leq b_i,i=1,\cdots,n\right\}=\left[a_1,b_1\right]\times\cdots\times\left[a_n,b_n\right]\]
+    可定义$I$的体积$\mathrm{vol}\left(I\right)$如下：
+    \[\mathrm{vol}\left(I\right)=\left(b_1-a_1\right)\cdots\left(b_n-a_n\right)\]
+    我们允许$I$是\emph{退化（degenerate）}的，即对某些$i$有$b_i=a_i$，此时$\mathrm{vol}\left(I\right)=0$。
+
+    $\mathbb{R}^n$上的\emph{勒贝格外测度（Lebesgue outer measure）}$m^*:\mathcal{P}\left(\mathbb{R}^n\right)\rightarrow\mathbb{R}^+,$
+    \[m^*\left(A\right)=\mathrm{inf}\left\{\sum_{i=1}^\infty\mathrm{vol}\left(I_i\right):A\subset\bigcup_{i=1}^\infty I_i\right\}\]
+    为理解上式的意义，这里需要作若干解释：
+    \begin{enumerate}
+        \item 覆盖。
+
+              给定集合$\Omega$及其子集$A,A_1,\cdots$，若$A=\bigcup_{i=1}^\infty A_i$则称集合$A$可被$\left\{A_1,\cdots\right\}$\emph{覆盖（covered）}，或称$\left\{A_1,\cdots\right\}$是对集合$A$的一个\emph{覆盖（cover）}。也许，有限个非空集$\left\{A_1,\cdots,A_n\right\}$即足以覆盖$A$，但仍可令$A_{n+1}=\cdots=\emptyset$凑至可数无穷个（空集必为$\Omega$的子集，所以是可以用的），所以我们总把集合$A$的一个覆盖构建为一个可数无穷个$A_i$的集合。
+
+              对于本例的集合$A\subset\mathbb{R}^n$，$C_A=\left\{I_1,\cdots\right\}$满足$A\subset\bigcup_{i=1}^\infty$就是用一组可数个$n$-维闭区间$I_i$对$A$的一个覆盖（如图）。如果可数个非退化的$n$-维闭区间即足以覆盖$A$，那么可把用退化的$n$-维闭区间凑至可数无穷个。不难理解，对任一集合的任一子集总能找到至少一个覆盖。
+        \item 实数子集的下确界（infimum）。
+
+              设$A$是$\mathbb{R}$的非空子集，那么$A$的一个\emph{下界（lower bound）}是一个实数$m$，满足$x\geq m,\forall x\in A$。$A$的\emph{下确界（infimum）}，记作$\mathrm{inf}A$，是$A$的所有下界的最大值，即对任一$\varepsilon>0$总存在一个$A$的元素$a$，使得$a<\mathrm{inf}A+\varepsilon$\footnote{\emph{上界（upper bound）}和\emph{上确界（supremum）}的定义是类似的。}。对于实数的任一非空子集，只要有下界，那就必有下确界，且下确界总是唯一的。没有下界的非空子集，有时又称其下（确）界为负无穷。
+        \item 所有覆盖的总体积的下确界。
+
+              表达式
+              \[\left\{\sum_{i=1}^\infty\mathrm{vol}\left(I_i\right):A\subset\bigcup_{i=1}^\infty I_i\right\}\]
+              表示集合$A$的所有$n$-维闭区间覆盖的总体积值的集合，它于是就是$\mathbb{R}$的一个子集。它的下确界，就是指$A$的所有$n$-维闭区间覆盖方式中总体积最小的一种的体积值。
+    \end{enumerate}
+
+    $m^*$是外测度，这需要篇幅不短的证明（此略）。勒贝格外测度使得$n$维欧几里得空间的任意形状都有唯一的“体积”值，且它像我们直接那般满足次可加性。
+    %Juha Kinnunen讲义
+\end{example}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{../images/lebesgue_cover.pdf}
+    \caption{集合的覆盖：以2维空间为例，$\mathbb{R}^2$的子集$A$由如图所示的7个非退化的2维矩形覆盖。}
+    %\label{fig:II.1.1}
+\end{figure}
+
+为什么我们不直接定义可加性（additivity），即$\mu^*\left(\bigcup_{i=1}^\infty A_i\right)=\sum_{i=1}^\infty\mu^*\left(A_i\right)$呢？因为我们没有规定这些$A_i$是两两不交（pairwise disjoint）的。如果$\mu^*\left(A\right)=\mu^*\left(A^\prime\right)$、$\mu^*\left(B\right)=\mu^*\left(B^\prime\right)$，$A\cap B=\emptyset$、$A^\prime\cap B^\prime\neq\emptyset$，那么我们确实不希望$A\cup B$的“大小”等于$A^\prime\cup B^\prime$的“大小”；前者应该“大”于后者。但如果我们给集合函数$\mu^*$定义了严格的可加性，那就只会得到$\mu^*\left(A\cup B\right)=\mu^*\left(A^\prime\cup B^\prime\right)$，不符合我们的意图。
 
 既然如此，我们直接要求不交子集的并集上的可加性就好了。为什么只敢要求一般子集并集上的次可加性？这是因为，并不是随便定义一个集合函数（哪怕它还已满足外测度的要求），就一定能在一个集合的所有子集上具备不交子集之间的可加性的。以下是一个例子：
 
@@ -28,7 +78,7 @@
     \[\mu^*\left(A\cup B\right)=\mu^*\left(\left\{1,2\right\}\right)=1\neq2=\mu^*\left(A\right)+\mu^*\left(B\right)\]
 \end{example}
 
-对于一般的集合$\Omega$的任一子集，也许最多只能定义出外测度的性质了。如果想要有不交集之间的严可加性，我们就需要对$\Omega$的子集进行挑选，而不能讨论$\Omega$的任一子集。我们把符合不交集间的严可加性质的子集称作“可测集”。严格地——
+对于一般的集合$\Omega$的任一子集，也许最多只能定义出外测度的性质了。如果想要有不交集之间的严可加性，我们就需要对$\Omega$的子集进行挑选。我们把符合不交集间的严可加性质的子集称作“可测集”。严格地——
 
 \begin{definition}[可测集]
     设$\mu^*$是定义在集合$\Omega$上的一个外测度。如果$\Omega$的子集$A\subset \Omega$满足
@@ -38,25 +88,30 @@
 
 我们在“可测的”三个字前面加上“$\mu^*$-”，是想强调，一个子集$A\subset\Omega$可不可测，依赖$\Omega$上的$\mu^*$的具体定义。设$\mu_1^*$和$\mu_2^*$是$\Omega$上定义的两个不同的外测度，那么$\Omega$的子集$A$有可能是$\mu_1^*$-可测的，却是$\mu_2^*$-不可测的。
 
-从定义的直接意义可知，$\Omega$的一个$\mu^*$-可测（子）集$A$，能把$\Omega$任一子集$E$切分成$mu^*$值\emph{可加的}两个不交的集合。因此，虽然对$\Omega$的任意子集，$\mu^*$只有次可加性，但用$\mu^*$-可测的子集$A$分割$\Omega$及其任一子集，在所得到的两个集合上$\mu^*$具有可加性。
-
-但是，这一性质更重要的效果是使$\mu^*$在一个$\mu^*$-可测集$A$上的行为就是严格可加的。假设$A,B\subset\Omega$，且$A$是$\mu^*$-可测的，那么就有
+从定义的直接意义可知，$\Omega$的一个$\mu^*$-可测（子）集$A$，能把$\Omega$任一子集$E$切分成$\mu^*$值\emph{可加的}两个不交的集合。因此，虽然对$\Omega$的任意子集，$\mu^*$只有次可加性，但用$\mu^*$-可测的子集$A$分割$\Omega$及其任一子集，在所得到的两个集合上$\mu^*$具有可加性。这一性质更直观的效果是使$\mu^*$在一个$\mu^*$-可测集$A$上的行为就是严格可加的。由定义，假设$A,B\subset\Omega$，$A\subset B$，且$A$是$\mu^*$-可测的，那么就有
 \begin{align*}
     \mu^*\left(B\right) & =\mu^*\left(B\cap A\right)+\mu^*\left(B\setminus A\right) \\
                         & =\mu^*\left(A\right)+\mu^*\left(B\setminus A\right)       \\
                         & =\mu^*\left(A\right)+\mu^*\left(B\setminus A\right)
 \end{align*}
-换言之，只要$\Omega$的两个子集$A$、$B$其中一个是$\mu^*$-可测的，且它们是不交的，就能有$\mu^*\left(A\cup B\right)=\mu^*\left(A\right)+\mu^*\left(B\right)$，因为对任意两个不交集$A$和$B$，总有$A\subset\left(A\cup B\right)$及$B=\left(A\cup B\right)\setminus A$。我们进一步提出以下引理。
+注意到，$A$和$B\setminus A$是不交的。给定任意两个$\Omega$的不交子集$A$、$C$，我们总能找到一个子集$B$，使得$C=B\setminus A$——它就是$B=A\cup C$。换言之，只要$\Omega$的两个不交子集$A$、$C$其中一个是$\mu^*$-可测的，就能有$\mu^*\left(A\cup C\right)=\mu^*\left(A\right)+\mu^*\left(C\right)$。我们进一步提出以下引理。
 
 \begin{lemma}
-    给定集合$\Omega$，若$A_1,\cdots,A_i,\cdots\subset\Omega$是$\Omega$上的一个外测度$\mu*$下的$\mu^*$-可测集，且它们两两不交，则有
+    给定集合$\Omega$和于其上定义的一个外测度$\mu^*$，若$A_1,\cdots,A_i,\cdots\subset\Omega$都是$\mu^*$-可测集，且它们两两不交，则有
     \[\mu^*\left(\bigcup_{i=1}^\infty A_i\right)=\sum_{i=1}^\infty\mu^*\left(A_i\right)\]
 \end{lemma}
 \begin{proof}
     待补充。%https://math.stackexchange.com/questions/1000608/an-outer-measure-is-countable-additive-on-the-measurable-sets
 \end{proof}
 
-有了可测集的定义，我们朝着“不交集上的可加性”迈了一步。我们于是期望，每当我们为一个集合$\Omega$定义了一个外测度$\mu^*$后，我们就只讨论$\Omega$的所有$\mu^*$-可测子集$A_1,A_2,\cdots$。可是，我们经常还会对集合进行运算，比如若干个集合的交集或并集、一个集合相对另一集合的补集……等等。如果我们辛辛苦苦挑出了$\Omega$的一堆$\mu^*$-可测的子集，但是它们的交集或并集等运算得出的新集合却是$\mu^*$-不可测的，那也很麻烦。因此我们进一步希望，不仅$A_1,A_2,\cdots$要满足$\mu^*$-可测，它们的集合运算结果也得满足$\mu^*$-可测。换句话说，我们希望拥有一个，在$\mu^*$-可测性质上，对集合运算\emph{封闭}的$\Omega$的子集的集合$\mathcal{F}\left(\Omega\right)$。如果说，$\mu^*$-可测集有可能交、并、补出$\mu^*$-不可测集来的，那我们就甚至不讨论所有$\mu^*$-可测集，而只讨论那些，交、并、补结果仍然$\mu^*$-可测的$\mu^*$可测集。这使得我们又要进一步筛选。但幸运的是，以下引理保证了，一个集合$\Omega$的所有$\mu^*$-可测集的集合就是一个对集合运算封闭的集合了，换言之，$\mu^*$-可测集的交、并、补运算结果总也是$\mu^*$-可测的。如果我们把具有上述封闭性的子集的集合称作“$\sigma$-代数”，那么也就可以说由所有$\mu^*$-可测集形成的集合是一个$\sigma$-代数。
+有了可测集的定义，我们朝着“不交集上的可加性”迈了一步。
+
+
+但是我们尚未保证，可测集之间的集合运算结果也可测。而我们希望拥有一个，在$\mu^*$-可测性质上，对集合运算\emph{封闭}的$\Omega$的子集的集合$\mathcal{F}\subset\mathcal{P}\left(\Omega\right)$。具体地，
+
+
+
+如果说，$\mu^*$-可测集有可能经过交、并、或补集运算得出$\mu^*$-不可测集来的，那我们就需要进一步筛选。幸运的是，以下引理保证了，一个集合$\Omega$的所有$\mu^*$-可测集的集合就是一个对集合运算封闭的集合了。换言之，$\mu^*$-可测集的交、并、补运算结果总也是$\mu^*$-可测的。
 
 \begin{definition}[$\sigma$-代数]
     给定集合$\Omega$，如果$\Omega$的子集的集合$\mathcal{P}_{\sigma}\left(\Omega\right)$满足：
@@ -100,9 +155,20 @@
     则称$\mu$是\emph{测度空间（measure space）}$\left(\Omega,\mathcal{P}_\sigma\left(\Omega\right),\mu\right)$上的一个\emph{测度（measure）}。若集合$\Omega$与它的一个$\sigma$-代数$\mathcal{P}_\sigma\left(\Omega\right)$上有一个测度，就称$\left(\Omega,\mathcal{P}_\sigma\left(\Omega\right)\right)$是一个\emph{可测空间（measurable space）}。
 \end{definition}
 
-我们留意到，测度的定义是假定我们先给定了集合$\Omega$的一个$\sigma$-代数$\mathcal{P}_\sigma\left(\Omega\right)$的，因此我们面临的问题是，已知一个集合的一个$\sigma$-代数，怎么安全地定义出一个测度来。这时我们就发现，之前的两个引理并不够用。因为按照这两个引理，我们只能在先给定一个外测度$\mu^*$的情况下，通过从$\Omega$圈出所有$\mu^*$-可测集的集合得到一个关于这个外测度$\mu^*$的$\sigma$-代数$\mathcal{P}^*_\sigma\left(\Omega\right)$，此时这个外测度才升级为一个测度，并与$\mathcal{P}^*_\sigma\left(\Omega\right)$一齐形成一个测度空间$\left(\Omega,\mathcal{P}^*_\sigma\left(\Omega\right),\mu^*\right)$。因此我们需要回答：如果我们先给定一个集合$\Omega$的一个$\sigma$-代数$\mathcal{P}_\sigma\left(\Omega\right)$，是否总有一个（甚至是否会有多个）外测度$\mu^*$，使得恰好$\mathcal{P}^*_\sigma\left(\Omega\right)=\mathcal{P}_\sigma\left(\Omega\right)$？如果答案是肯定的，那我们只需要有一个办法从一个给定的$\sigma$-代数找到这样的一个外测度$\mu^*$就可以了。这种思路及其可行性的证明，在数学上叫卡拉西奥多里延拓定理（Carathéodory's extension theorem）\footnote{这个定理有很多相似但不同的陈述，也有很多不同的名字组合，例如卡拉西奥多里--弗雷歇（Carathéodory--Fréchet）、卡拉西奥多里--霍普夫（Carathéodory--Hopf）、卡拉西奥多里--哈恩（Carathéodory--Hahn）、卡拉西奥多里--柯尔莫哥洛夫（Carathéodory--Kolmogorov）、柯尔莫哥洛夫--哈恩（Kolmogorov--Hahn）等。}，详见专门的测度论教材。在这里，我们只介绍对当前讨论有用的结论。
+我们留意到，测度的定义是假定我们先给定了集合$\Omega$的一个$\sigma$-代数$\mathcal{P}_\sigma\left(\Omega\right)$的，因此我们面临的问题是，已知一个集合的一个$\sigma$-代数，怎么安全地定义出一个测度来。这时我们就发现，之前的两个引理并不够用。因为按照这两个引理，我们只能在先给定一个外测度$\mu^*$的情况下，通过从$\Omega$圈出所有$\mu^*$-可测集的集合得到一个关于这个外测度$\mu^*$的$\sigma$-代数$\mathcal{P}^*_\sigma\left(\Omega\right)$，此时这个外测度才升级为一个测度，并与$\mathcal{P}^*_\sigma\left(\Omega\right)$一齐形成一个测度空间$\left(\Omega,\mathcal{P}^*_\sigma\left(\Omega\right),\mu^*\right)$。因此我们需要回答：如果我们先给定一个集合$\Omega$的一个$\sigma$-代数$\mathcal{P}_\sigma\left(\Omega\right)$，是否总有一个（甚至是否会有多个）外测度$\mu^*$，使得恰好$\mathcal{P}^*_\sigma\left(\Omega\right)=\mathcal{P}_\sigma\left(\Omega\right)$？如果答案是肯定的，那我们只需要有一个办法从一个给定的$\sigma$-代数找到这样的一个外测度$\mu^*$就可以了\footnote{这种思路及其可行性的证明，在数学上叫卡拉西奥多里延拓定理（Carathéodory's extension theorem）这个定理有很多相似但不同的陈述，也有很多不同的名字组合，例如卡拉西奥多里--弗雷歇（Carathéodory--Fréchet）、卡拉西奥多里--霍普夫（Carathéodory--Hopf）、卡拉西奥多里--哈恩（Carathéodory--Hahn）、卡拉西奥多里--柯尔莫哥洛夫（Carathéodory--Kolmogorov）、柯尔莫哥洛夫--哈恩（Kolmogorov--Hahn）等。，详见专门的测度论教材。在这里，我们只介绍对当前讨论有用的结论。}。
 
-事实上，只有在特定条件下，我们才能从一个$\sigma$-代数找出具有上述意义的相应的、唯一的外测度$\mu^*$来。这一特定的条件需要用两个关于测度性质的术语，一是完备性，二是$\sigma$-有限性。
+但是，这一问题在最一般的情况下，是没有明确的结果的。我们最多可以说，每一个给定的测度空间$\left(\Omega,\mathcal{M},\mu\right)$（即不仅给定了$\sigma$-代数$\mathcal{M}$，还给定了测度$\mu$），都可以引出一个相应的外测度$\mu^*$。步骤大概是：
+
+\begin{enumerate}
+    \item 给定$\Omega$的任一子集$A\in\mathcal{P}\left(\Omega\right)$，我们要能在$\mathcal{M}$中找出能覆盖集合$A$的集合的可数个集合$A_1,A_2,\cdots$，即满足$A=\bigcup_{i=1}^\infty A_i$（如果你找到有限个非空集合就已覆盖$A$，那就让剩余的集合都取空集，仍然可以说下标$i$从$1$数到无穷）；
+    \item 从$\mathcal{M}$中找出的这种覆盖$A$的组合可以有很多种，每种我们都可以用测度$\mu$计算它们的测度和$\sum_{i=1}^\infty\mu\left(A_i\right)$；
+    \item 我们把待构建的外测度$\mu^*\left(A\right)$的值定义为，$\mathcal{M}$中找出的所有上述覆盖的测度和的下界。
+\end{enumerate}
+以上的“找”的动作，都能保证“找得到”，且下界值是唯一的。故由测度$\mu$引出的外测度$\mu^*$可用符号表示为：
+
+\[\forall A\in\mathcal{P}\left(\Omega\right):\mu^*\left(S\right)=\mathrm{inf}\left\{\sum_{i=1}^\infty\mu\left(A_i\right):\forall i\in\mathbb{N}:A_i\in\mathcal{M},A\subset\bigcup_{i=1}^\infty A_i\right\}\]
+
+至此，我们知道，任一测度空间$\left(\Omega,\mathcal{M},\mu\right)$都可以引出唯一一个外测度$\mu^*$。如果我们能说，这一引出的外测度$\mu^*$的$\mu^*$-可测集恰好就是这个$\sigma$-代数$\mathcal{M}$，那我们也就可以说这是由这个给定的$\sigma$-代数（通过其上的测度$\mu$）所引出的外测度了。但是这件事需要条件：就是这个测度$\mu$不能是任意的，而必须是完备且$\sigma$-有限的，这两个性质定义如下。
 
 \begin{definition}[测度的完备性]
     如果一个测度空间$\left(\Omega,\mathcal{M},\mu\right)$的测度$\mu$满足：若$B\in\mathcal{M}$、$\mu\left(B\right)=0$且$A\subset B$，则有$A\in\mathcal{M}$，则称$\mu$是\emph{完备的（complete）}。
@@ -122,6 +188,8 @@
 
 例如问：整条实数轴能被可数个长度有限的连通闭区间完全覆盖吗？如果区间$\left[a,b\right]$的长度的定义就是通常的$\left|b-a\right|$，那么答案是肯定的。我们于是称区间长度是$\mathbb{R}$的连通闭区间上的$\sigma$-有限测度。
 %https://math.stackexchange.com/questions/2685496/proving-the-lebesgue-measure-is-sigma-finite-for-any-dimension
+
+
 
 %完成由给定sigma代数找到外测度再到测度的过程。Juha Kinnunen讲义的Remark 1.18浓缩了很多结论。但只要把这个讲清楚就完成任务了。剩下的，在测度空间上的推进，可以按王梓坤的来。
 \end{document}
