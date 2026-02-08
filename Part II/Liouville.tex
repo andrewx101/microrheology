@@ -1,0 +1,85 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\section{非平衡统计力学的基本思想}
+在平衡态统计力学的章节中我们介绍了“系综”的概念。它是假想的概念，用来给出实际系统在给定宏观约束条件下的平衡态，取任一微观状态的概率。现在，我们可以把讨论推广至非平衡态。在恒定的宏观约束下，系统只有经过很长的时间之事，才趋近平衡态。在此之前，系统都处于非平衡态，但它的微观状态仍然只能在相同的集合同选取，因为一个系统可取的微观状态集合是仅由宏观约束条件所确定的。
+
+具体地，记体系在微观状态的位形是$\mathbf{r}^N\equiv\left(\mathbf{r}_1,\cdots,\mathbf{r}_N\right)$，动量是$\mathbf{p}^N\equiv\left(\mathbf{p}_1,\cdots,\mathbf{p}_N\right)$，该微观状态在相空间中的对应位置是$\bm{\Gamma}\equiv\left(\mathbf{r}^N,\mathbf{p}^N\right)$。在某组宏观约束下，该体系可以取的所有微观状态，在其相空间中占据的区域是$\Lambda\subset\mathbb{R}^{6N}$。
+
+有时$\Lambda\subsetneq\mathbb{R}^{6N}$，即体系的某些微观状态是不可取的。例如，体系是装在一个体系和形状都固定为$\Omega\subset\mathbb{R}^3$的容器中的液体，则每个分子都只能取位于容器内的位置，$\forall i=1,\cdots,N,\quad\mathbf{r}_i\in\Omega$，于是$\Lambda=\Omega^N\times\mathbb{R}^{3N}$。不过，体积限制的情况更常通过保持$\Lambda=\mathbb{R}^{6N}$，并引入相应空间分布的势阱来描述。
+
+有时，宏观约束造成的$\Lambda$区域是随时间变化的，因此要记作$\Lambda_t$。
+
+在给定宏观约束条件下，系统的系综是确定的。
+
+
+
+我们可不失一般性地假定$\Lambda$总是1个单连通紧集\footnote{关于这里的更多讨论见附录。}。因此体系的所有可取状态总是一个“连续介质”，其概率测度对$\mathbb{R}^{6N}$的Lebesgue测度是绝对连续的。这样，我们可以定义体系的微观状态的概率密度函数$f\left(\bm{\Gamma}\right)$，使得$\forall\Lambda\subset\mathbb{R}^{6N}$，体系的状态取在$\Lambda$中$\bm{\Gamma}\sim\bm{\Gamma}+\mathrm{d}\bm{\Gamma}$小区间内的概率为$f\left(\bm{\Gamma}\right)\mathrm{d}\bm{\Gamma}$，且归一化条件是$\int_{\Lambda_t}f\left(\bm{\Gamma}\right)\mathrm{d}\bm{\Gamma}\equiv 1,\forall t$。若$f\left(\bm{\Gamma}\right)$在$\mathbb{R}^{6N}\setminus\Lambda$上可延拓为$0$，则总有$\int_{\mathbb{R}^{6N}}f\left(\bm{\Gamma}\right)\mathrm{d}\bm{\Gamma}=1$。
+
+在这样的设定下，体系的微观运动体现为一群点带着其概率密度在相空间$\mathbb{R}^{6N}$的运动，类似连续介质流体的物质点带着其质量密度在$\mathbb{R}^3$空间的流动。若视$\Lambda_0$为参考构型且$\mathbf{X}\in\Lambda_0$为参考构型中的一点，则自然地也可称$\Lambda_t$为当前构型，$\mathbf{x}\left(t\right)\in\Lambda_t$为当前构型中的一点，$f\left(\bm{\Gamma},t\right)$视为相空间流体密度的空间描述（欧拉描述）。若已知其运动方程，即已知双射$\chi_t:\Lambda_0\to\Lambda_t$，则该相空间流体的速度场$\mathbf{u}\left(\bm{\Gamma},t\right)$（空间描述）也可相应地被定义（详见连续介质力学教材）。许多非平衡态统计力学教科书常直接把$\mathbf{u}\left(\bm{\Gamma},t\right)$记为“$\dot{\bm{\Gamma}}$”，这很容易使人混淆空间位置$\bm{\Gamma}\in\mathbb{R}^{6N}$和处于$\bm{\Gamma}$的构型$\mathbf{X}\in\Lambda_0\subset\mathbb{R}^{6N}$与$\mathbf{x}\left(t\right)\in\Lambda_t\equiv\chi_t\left(\Lambda_0\right)\subset\mathbb{R}^{6N}$的概念；只有最后者有“速度”的概念。
+
+受因果决定论（信息守恒）规定，由任一时刻$t=0$的各个可取微观状态为初态的运动在在相空间的轨迹必不相交（否则就可能有“多因一果”或“一因多果”的情况，即信息的丢失或增生），因此无论概率密度具体如何变化，其在相空间总满足守恒律，即
+\[\frac{\mathrm{d}}{\mathrm{d}t}\int_{\Lambda_t}f\left(\bm{\Gamma},t\right)\mathrm{d}\bm{\Gamma}\equiv 0,\quad \forall t\]
+由雷诺传输定理，我们有以下类似连续性方程的方程：
+\[\frac{\partial f}{\partial t}+\nabla\cdot\left(f\mathbf{u}\right)=0\]
+这就是Liouville方程。
+
+以下介绍Liouville方程在许多教科书中常见的等价表达形式。首先，上式可详细地记为
+\[\frac{\partial f}{\partial t}+\sum_{i=1}^N\left[\left(\frac{\partial f}{\partial \mathbf{r}_i}\right)\dot{\mathbf{r}_i}+\left(\frac{\partial f}{\partial \mathbf{p}_i}\right)\dot{\mathbf{p}_i}\right]=0\]
+这里要用到速度场$\mathbf{u}$如何写成$\mathbf{r}_i$和$\mathbf{p}_i$的知识：相空间流体速度场的空间描述，可直接写成当前构型点所在位置的变化，因此成了$\left(\dot{\mathbf{r}}_i,\dot{\mathbf{p}}_i\right)$，而相空间流体密度的梯度$\nabla f$可分解为对$\mathbf{r}_i$和$\mathbf{p}_i$的梯度，即$\left(\frac{\partial f}{\partial \mathbf{r}_i},\frac{\partial f}{\partial \mathbf{p}_i}\right)$。Liouville方程又常记为
+\[\frac{\partial f}{\partial t}=-\mathrm{i}\mathcal{L}f\]
+其中$\mathcal{L}$是Liouville算符。用速度场表示的话，它无非是如下定义的算符：
+\[\mathrm{i}\mathcal{L}\equiv \mathbf{u}\cdot\nabla+\nabla\cdot\mathbf{u}\]
+在有的书中，会记$\mathrm{L}\equiv\mathrm{i}\mathcal{L}$\cite[eqs. (2.36), (2.37)]{Zwanzig2001}。
+
+若考虑体系满足哈密顿方程，即
+\[\dot{\mathbf{r}_i}=\frac{\partial H}{\partial\mathbf{p}_i},\quad\dot{\mathbf{p}_i}=-\frac{\partial H}{\partial\mathbf{r}_i},\quad\forall i=1,\cdots,N\]
+则有$\nabla\cdot\mathbf{u}=0$，即相空间流体具有不可压缩性。此时刘维尔方程变为
+\[\dot{f}+\mathbf{u}\cdot\nabla f=0,\quad\text{哈密顿系}\]
+或具体写成
+\[\frac{\partial f}{\partial t}+\sum_{i=1}^N\left(\frac{\partial f}{\partial \mathbf{r}_i}\frac{\partial H}{\partial \mathbf{p}_i}-\frac{\partial f}{\partial p_i}\frac{\partial H}{\partial\mathbf{r}_i}\right)=0,\quad\text{哈密顿系}\]
+若引入泊松括号$\left\{A,B\right\}\equiv\sum_{i=1}^N\left(\frac{\partial A}{\partial \mathbf{r}_i}\frac{\partial B}{\partial \mathbf{p}_i}-\frac{\partial A}{\partial \mathbf{p}_i}\frac{\partial B}{\partial\mathbf{r}_i}\right)$，则有
+\[\dot{f}=\left\{H,f\right\},\quad\text{哈密顿系}\]
+
+Liouville仅基于因果决定论，因此它是普适的方程。但它并不含有具体体系的特殊性的信息，这种特殊性体现在运动方程（对哈密顿体系则为哈密顿方程）的具体形式中。这在上述表达式中是待定的，对$N\sum O\left(10^{23}\right)$的情况则更是实际不可知的。此时，我们甚至不知道该方程是否总存在稳态解，即体系是否总会趋于平衡态。
+
+\section{相变量的变化方程}
+若体系的某性质$B$可由映射$B:\mathbb{R}^{6N}\rightarrow\mathcal{F}$定义，那么$\mathbb{R}^{6N}$中任一状态$\bm{\Gamma}=\left(\mathbf{r}^N,\mathbf{p}^N\right)$的性质值$B\left(\bm{\Gamma}\right)$都已知道。这里的到达域$\mathcal{F}$可以是$\mathbb{R}$或$\mathbb{C}$上的各阶张量空间，也可以是更复杂的空间，取决于物理量$B$的具体定义。我们把$B$称为相变量（phase vairable），因为它仅为相空间位置的函数。
+
+在体系的微观运动变化过程中，其在相空间的轨迹$\mathbf{x}\left(t\right)$使得性质$B$也随时间变化$B\left(t\right)=B\left(\mathbf{x}\left(t\right)\right)$。我们把这种情况的性质变化记作$\hat{B}\left(t\right)$，以示它是某次微观状态变化造成的变化量。对$\hat{B}\left(t\right)$作时间导数：
+\begin{align*}
+    \frac{\mathrm{d}}{\mathrm{d}t}\hat{B}\left(t\right) & =\frac{\mathrm{d}}{\mathrm{d}t}B\left(\mathbf{x}\left(t\right)\right)                                                                                      \\
+                                                        & =\left.\frac{\mathrm{d}\hat{B}\left(\bm{\Gamma}\right)}{\mathrm{d}\bm{\Gamma}}\right|_{\bm{\Gamma}=\mathbf{x}\left(t\right)}\dot{\mathbf{x}}\left(t\right) \\
+                                                        & =\mathbf{u}\cdot\nabla\hat{B}\equiv\mathrm{iL}\hat{B}
+\end{align*}
+其中$\mathrm{L}$称p-Liouvillean，以示区别，$\mathcal{L}$称$f$-Lioiuvillean。显然$\mathrm{iL}\equiv \mathbf{u}\cdot\nabla$。在这里我们需要区分的是，$\mathrm{L}$中的$\mathbf{u}\left(t\right)\equiv\mathbf{x}\left(t\right)$是体系某次演变的相空间轨迹，而$\mathcal{L}$中的$\mathbf{u}\left(\bm{\Gamma},t\right)$则是体系的非平衡态概率密度的相空间流体速度场。我们当然也可以讨论，体系的相空间流体对应的性质$B$，即相空间流体在任一构型下，每个构型点都对应的一个$B$值形成的场$\tilde{B}=\tilde{B}\left(\bm{\Gamma},t\right)$（空间描述），这时，它的时间变化率应对其作物质导数，即
+\begin{align*}
+    \frac{\mathrm{D}}{\mathrm{D}t}\tilde{B}\left(\bm{\Gamma},t\right) & =\frac{\partial \tilde{B}\left(\bm{\Gamma},t\right)}{\partial t}+\mathbf{u}\left(\bm{\Gamma},t\right)\cdot\nabla\tilde{B} \\
+                                                                      & =\mathbf{u}\cdot\nabla\tilde{B}=\mathrm{iL}\tilde{B}
+\end{align*}
+其中用到了$\partial \tilde{B}/\partial t\equiv 0$，因为由微观状态$\bm{\Gamma}$到性质$B$的映射，必遵守某物理定律，而物理定律是不随时间变化的。上式中我们作了符号滥用，上式中的$\mathrm{iL}\equiv \mathbf{u}\cdot\nabla$中的$\mathbf{u}$是相空间流体的速度场，不是某次动运的相空间轨迹速度。但都用同一符号$\mathrm{L}$了。
+
+易知，对于哈密顿系，由于有$\nabla\cdot\mathbf{u}=0$，因此$\mathcal{L}=\mathrm{L}$。大部分教科书默认所讨论的体系是哈密顿系，因此不区分$\mathcal{L}$与$\mathrm{L}$（即不区分p-Liouvillean与$f$-Liouvillean），这是不严谨的。
+
+\section{Liouville方程的形式解}
+Liouville方程本身只是一个一般形式。它的解因此也可写下一般的形式，常称为Liouvillel方程的“形式解”（formal solution）。同样的概念也用于相变量的变化方程。具体地
+\begin{align*}
+    \frac{\partial}{\partial t}f\left(\bm{\Gamma},t\right)=-\mathrm{i}\mathcal{L}f & \Rightarrow f\left(\bm{\Gamma},t\right)=e^{-\mathrm{i}\mathcal{L}t}f\left(\bm{\Gamma},0\right) \\
+    \frac{\partial}{\partial t}B\left(t\right)=\mathrm{iL}B                        & \Rightarrow B\left(t\right)=e^{\mathrm{iL}t}B\left(0\right)
+\end{align*}
+其中$\exp\left(-\mathrm{i\mathcal{L}t}\right)$称$f$-propagator，$\exp\left(\mathrm{iLt}\right)$称p-propagator。按泰勒展开，我们有
+\[e^{-\mathrm{i}\mathcal{L}t}=\sum_{n=0}^\infty\frac{\left(-t\right)^n}{n!}\left(\mathrm{i}\mathcal{L}\right)^n\]
+从而Liouville方程的形式解可写为
+\[f\left(\bm{\Gamma},t\right)=\sum_{n=1}^\infty\frac{\left(-t\right)^n}{n!}\left(\mathrm{i}\mathcal{L}\right)^nf\left(\bm{\Gamma},0\right)=\sum_{n=1}^\infty\frac{\left(-t\right)^n}{n!}\frac{\partial^n}{\partial t^n}f\left(\bm{\Gamma},t\right)\]
+其中又用了一次Liouvillel方程本身。
+
+以下证明，$\mathcal{L}$与$\mathrm{L}$互为伴随算符\footnote{Zwanzig的书\cite{Zwanzig2001}eqs. (2.12) \& (2.13)的相关讨论显示这其实是散度定理。}，即
+\[\int_{\Lambda_0}\mathrm{d}\bm{\Gamma}f\left(\bm{\Gamma},0\right)\mathrm{iL}B\left(\bm{\Gamma},0\right)=-\int_{\Lambda_0}\mathrm{d}\bm{\Gamma}B\left(\bm{\Gamma},0\right)\mathrm{iL}f\left(\bm{\Gamma},0\right)\]
+
+
+
+这里我们用到了$\mathcal{L}$的定义，即$\mathrm{i}\mathcal{L}\equiv \mathbf{u}\cdot\nabla+\nabla\cdot\mathbf{u}$。我们有
+
+
+对哈密顿系，$\mathcal{L}=\mathbf{L}$，故此时它们是厄米算符。
+
+\end{document}
